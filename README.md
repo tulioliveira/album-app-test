@@ -10,11 +10,12 @@ Essa teste consiste em entendermos um pouco mais sobre seus conhecimentos com HT
 
 ### Instruções
 
-1. Faça um fork e clone do projeto;
-2. Crie uma branch (pode ser com seu nome mesmo);
-3. Estude o problema descrito em docs/REQUISITOS.md;
-4. Crie uma aplicação web seguindo as boas práticas da comunidade;
-5. Implemente a solução para o problema.
+1. Crie uma conta no [gitlab.com](https://www.gitlab.com/);
+2. Faça um fork e clone do projeto;
+3. Crie uma branch (pode ser com seu nome mesmo);
+4. Estude o problema descrito em docs/REQUISITOS.md;
+5. Crie uma aplicação web seguindo as boas práticas da comunidade;
+6. Implemente a solução para o problema.
 
 **PS:** Usamos o mesmo teste para todos os níveis de front: **pleno** ou **senior**, mas procuramos adequar nossa exigência na avaliação com cada um desses níveis sem, por exemplo, exigir excelência de quem está começando.
 
