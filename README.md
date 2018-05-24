@@ -6,13 +6,13 @@ A Alboom é hoje a maior plataforma de serviços digitais para fotógrafos e art
 A Alboom reconhece a importância da igualdade de oportunidades. O respeito ao ser humano, valoriza a diversidade e a convicção de que todos podem fazer algo que mudará o mundo ou a vida de alguém para melhor.
 
 ### Teste Front-end para o DesignBox, um produto Alboom!
-Essa teste consiste em entendermos um pouco mais sobre seus conhecimentos com HTML, CSS, lógica, WebAPI's e WebComponents.
+Este teste tem o objetivo de entendermos um pouco mais sobre seus conhecimentos com HTML, CSS, lógica, WebAPI's e WebComponents.
 
 ### Instruções
 
 1. Crie uma conta no [gitlab.com](https://www.gitlab.com/);
-2. Faça um fork e clone do projeto;
-3. Crie uma branch (pode ser com seu nome mesmo);
+2. Faça um fork e clone deste projeto;
+3. Crie um branch com o seu nome;
 4. Estude o problema descrito em docs/REQUISITOS.md;
 5. Crie uma aplicação web seguindo as boas práticas da comunidade;
 6. Implemente a solução para o problema.
@@ -21,7 +21,7 @@ Essa teste consiste em entendermos um pouco mais sobre seus conhecimentos com HT
 
 ### Esperamos que você
 
-* Utilize algum framework (Polymer, Vue, etc.) para trabalhar com os WebComponents;
+* Utilize algum framework (Polymer, Vue, React, etc.) para trabalhar com os WebComponents;
 * Utilize as ultimas versões das api's da web (atender browsers evergreen);
 * Utilize as ultimas versões de bibliotecas disponíveis;
 * Utilize as convenções arquiteturais do framework selecionado.
