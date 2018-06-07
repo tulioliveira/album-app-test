@@ -21,22 +21,23 @@ Este teste tem o objetivo de entendermos um pouco mais sobre seus conhecimentos 
 
 ### Esperamos que você
 
-* Utilize algum framework (Polymer, Vue, React, etc.) para trabalhar com os WebComponents;
+* Utilize algum biblioteca/framework (Polymer, Vue, React, etc.) para trabalhar com os WebComponents;
 * Utilize as ultimas versões das api's da web (atender browsers evergreen);
 * Utilize as ultimas versões de bibliotecas disponíveis;
-* Utilize as convenções arquiteturais do framework selecionado.
+* Utilize as convenções arquiteturais da biblioteca/framework selecionado.
 * Otimize a aplicação ao máximo;
 * Especifique o projeto no `README.md`;
 * Documente seus componentes e funções;
 
 ### Você pode
 
-* Utilizar um pré-processador de CSS (Scss, Stylus);
+* Utilizar um pré-processador de CSS (Stylus, Scss);
 * Utilizar um task runner de sua preferência;
-* Utilizar bibliotecas CSS como compass, nib, ou outras;
+* Utilizar bibliotecas CSS como nib, compass, ou outras;
 
 ### Ganhe pontos extras por:
 
+* Implemente gerenciamento de estado (MobX State Tree)
 * Utilizar javascript moderno (ES6, ES7 ou ES8);
 * Testes automatizados;
 * Componentizar seu CSS;
