@@ -17,6 +17,7 @@ Sendo um  fotógrafo supernerd, eu posso escrever uma definição de layout para
 * Algumas fotos para serem usadas nas lâminas `docs/images/*.jpg`
 
 ### Detalhes
+* a definição de layout 1 representa a lâmina 1 (página 1 do arquivo pdf), a definição de layout 2 representa a lâmina 2 (página 2 do arquivo pdf), e assim por diante
 * os dados do textarea e as fotos no layout devem ser persistidos entre reloads de página
 * caso o layout no textarea não seja compatível com a quantidade de fotos na lâmina ou não possa ser renderizado por alguma inconsistência na definição, você deve renderizar um layout padrão, por exemplo: [[1,2,3]]
 * a mesma foto pode ser adicionada várias vezes à lâmina
