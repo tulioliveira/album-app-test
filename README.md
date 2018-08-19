@@ -38,7 +38,7 @@ Este teste tem o objetivo de entendermos um pouco mais sobre seus conhecimentos 
 ### Ganhe pontos extras por:
 
 * Implemente gerenciamento de estado (MobX State Tree)
-* Utilizar javascript moderno (ES6, ES7 ou ES8);
+* Utilizar javascript moderno (ES6, ES2016 ou ES2017);
 * Testes automatizados;
 * Componentizar seu CSS;
 * Ser fiel as especificações dos arquivos;
