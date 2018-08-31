@@ -1,4 +1,6 @@
 import React from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 import styled from 'styled-components';
 import Grid from './Grid';
 import Row from './Row';
@@ -55,4 +57,4 @@ const Content = () => (
   </Grid>
 );
 
-export default Content;
+export default DragDropContext(HTML5Backend)(Content);

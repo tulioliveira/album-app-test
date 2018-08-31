@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Column from './Column';
-import Image from './Image';
+import DraggableImage from './DraggableImage';
 import Text from './Text';
 
 /**
@@ -49,10 +49,10 @@ const Container = styled(Column)`
 const ImageRoll = () => (
   <Container>
     <ImageRollWrapper>
-      <Image imageIndex="1" />
-      <Image imageIndex="2" />
-      <Image imageIndex="3" />
-      <Image imageIndex="4" />
+      <DraggableImage imageIndex="1" />
+      <DraggableImage imageIndex="2" />
+      <DraggableImage imageIndex="3" />
+      <DraggableImage imageIndex="4" />
     </ImageRollWrapper>
     <TextWrapper>
       <Text textAlign="left" letterSpacing="0.1rem">DRAG AND DROP IMAGES TO ADD THEM TO THE SHEET</Text>
