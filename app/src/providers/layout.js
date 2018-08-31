@@ -2,13 +2,24 @@ import _ from 'lodash';
 import math from 'mathjs';
 
 /**
- * Check if layout is two dimensional and form a rectangle
+ * Error messages in the display
+ */
+const errorMessages = {
+  dimension: 'Error: The layout must be bidimensional and rectangular',
+  sheet: 'Error: You can only use images in the sheet and all images in the sheet must be in the layout',
+  grid: 'Error: Images in the layout must be rectangular and completely filled'
+};
+
+/**
+ * Check if layout is bidimensional and form a rectangle
  * @param {array} layout
  * @return {boolean}
  */
-const isDimensionCorrect = layout => (
-  _.every(_.flatten(layout), Number) // Two dimensional
-  && _.every(layout, row => row.length === _.head(layout).length) // Rectangle
+const isDimensionValid = layout => (
+  Array.isArray(layout) // Is Array
+  && _.every(layout, item => Array.isArray(item)) // Not unidimensional
+  && _.every(_.flatten(layout), item => typeof item === 'number') // but Matrix
+  && _.every(layout, row => row.length === _.head(layout).length) // and Rectangle
 );
 
 /**
@@ -26,23 +37,83 @@ const doesLayoutMatchSheet = (layout, sheet) => {
 };
 
 /**
- * Check if all images are rectangles
+ * Map the layout to a grid array
  * @param {array} layout
  * @param {array} sheet
- * @return {boolean}
+ * @return {array}
  */
-// TODO
+const mapLayoutToGrid = (layout, sheet) => {
+  const images = math.add(_.times(sheet.length), 1);
+  const grid = _.times(images.length, _.constant({
+    x: null,
+    y: null,
+    width: 0,
+    height: 0
+  }));
+
+  _.each(images, (image) => {
+    _.each(layout, (row, index) => {
+      const firstIndex = _.indexOf(row, image);
+      const lastIndex = _.lastIndexOf(row, image);
+      if ((firstIndex >= 0) && (grid[image - 1].x === null)) {
+        grid[image - 1] = {
+          x: firstIndex,
+          y: index,
+          width: lastIndex - firstIndex + 1,
+          height: 1
+        };
+      }
+      else if (firstIndex >= 0) {
+        grid[image - 1].height += 1;
+      }
+    });
+  });
+
+  return grid;
+};
 
 /**
- * Verify if the layout is valid for the sheet provided
+ * Check if the layout grid is valid
  * @param {array} layout
- * @param {array} sheet
+ * @param {array} grid
  * @return {boolean}
  */
-const isLayoutValid = (layout, sheet) => (
-  doesLayoutMatchSheet(layout, sheet) && isDimensionCorrect(layout)
-);
+const isGridValid = (layout, grid) => {
+  const test = _.times(grid.length, _.constant(false));
 
-const mapLayoutToGrid = layout => layout;
+  _.each(grid, (item, index) => {
+    if (item.width > 1 || item.height > 1) {
+      let image = _.slice(layout, item.y, item.y + item.height);
+      image = _.map(image, row => _.slice(row, item.x, item.x + item.width));
+      test[index] = _.difference(_.flatten(image), [index + 1]).length === 0;
+    }
+    else {
+      test[index] = true;
+    }
+  });
 
-export { isLayoutValid, mapLayoutToGrid };
+  return _.every(test);
+};
+
+/**
+ * Verify if the layout is valid for the sheet provided, returning a grid object
+ * or a corresponding error message if it's invalid
+ * @param {array} layout
+ * @param {array} sheet
+ * @return {Object|string}
+ */
+const getLayoutGrid = (layout, sheet) => {
+  if (!isDimensionValid(layout)) {
+    return errorMessages.dimension;
+  }
+  if (!doesLayoutMatchSheet(layout, sheet)) {
+    return errorMessages.sheet;
+  }
+  const grid = mapLayoutToGrid(layout, sheet);
+  if (!isGridValid(layout, grid)) {
+    return errorMessages.grid;
+  }
+  return grid;
+};
+
+export { getLayoutGrid, errorMessages };
