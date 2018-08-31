@@ -1,7 +1,7 @@
 import { getLayoutGrid, errorMessages } from './layout';
 
 describe('Layout util provider tests', () => {
-  it('should return grid (default)', () => {
+  it('should correct grid for simple layout', () => {
     const layout = [[1, 2, 3]];
     const sheet = [1, 1, 1];
 
@@ -27,7 +27,7 @@ describe('Layout util provider tests', () => {
     ]);
   });
 
-  it('should return "sheet" error (don\'t use all sheet images)', () => {
+  it('should return "sheet" error, as layout don\'t use all sheet images', () => {
     const layout = [[1, 2, 3]];
     const sheet = [1, 1, 1, 1];
 
@@ -63,7 +63,7 @@ describe('Layout util provider tests', () => {
     ]);
   });
 
-  it('should return grid (big, single image)', () => {
+  it('should return correct grid for a big, single image', () => {
     const layout = [
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
       [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -84,7 +84,7 @@ describe('Layout util provider tests', () => {
     ]);
   });
 
-  it('should return grid (default, two images, two columns)', () => {
+  it('should return correct grid for layout with two images and two columns)', () => {
     const layout = [
       [1, 1, 1, 2, 2, 2],
       [1, 1, 1, 2, 2, 2]
@@ -107,7 +107,7 @@ describe('Layout util provider tests', () => {
     ]);
   });
 
-  it('should return "grid" error (image inside another)', () => {
+  it('should return "grid" error, as layout has an image inside another', () => {
     const layout = [
       [1, 1, 1, 2, 2, 2],
       [1, 1, 1, 2, 3, 2]
@@ -117,7 +117,7 @@ describe('Layout util provider tests', () => {
     expect(getLayoutGrid(layout, sheet)).toEqual(errorMessages.grid);
   });
 
-  it('should return grid (two columns, second column with two rows)', () => {
+  it('should return correct grid with two columns, the second column having two rows', () => {
     const layout = [
       [1, 1, 1, 2, 2, 2],
       [1, 1, 1, 2, 2, 2],
@@ -148,7 +148,7 @@ describe('Layout util provider tests', () => {
     ]);
   });
 
-  it('should return "sheet" error (use image not in sheet)', () => {
+  it('should return "sheet" error, as layout uses an image not in the sheet', () => {
     const layout = [
       [1, 1, 1, 3, 3, 3],
       [1, 1, 1, 3, 3, 3]
@@ -158,7 +158,7 @@ describe('Layout util provider tests', () => {
     expect(getLayoutGrid(layout, sheet)).toEqual(errorMessages.sheet);
   });
 
-  it('should return "dimension" error (not two dimensional)', () => {
+  it('should return "dimension" error, as layout is not two dimensional', () => {
     const layout = [
       [1, 1, 1, 2, 2, [2]],
       [1, 1, 1, 2, 2, 2]
@@ -168,14 +168,14 @@ describe('Layout util provider tests', () => {
     expect(getLayoutGrid(layout, sheet)).toEqual(errorMessages.dimension);
   });
 
-  it('should return "dimension" error (array, not matrix)', () => {
+  it('should return "dimension" error, as layout is an array, not a matrix', () => {
     const layout = [1, 1, 1, 2, 2, 2];
     const sheet = [1, 2];
 
     expect(getLayoutGrid(layout, sheet)).toEqual(errorMessages.dimension);
   });
 
-  it('should return "dimension" error (number, not matrix)', () => {
+  it('should return "dimension" error, as layout is a number, not a matrix', () => {
     const layout = 1;
     const sheet = [1];
 
