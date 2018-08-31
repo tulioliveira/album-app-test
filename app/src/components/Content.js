@@ -4,6 +4,7 @@ import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
 import Image from './Image';
+import ImageRoll from './ImageRoll';
 import Layout from '../containers/Layout';
 
 /**
@@ -19,22 +20,22 @@ const SheetWrapper = styled(Row)`
 `;
 
 /**
- * Avaliable Image Roll Wrapper
- */
-const ImageRollWrapper = styled(Row)`
-  flex: 6 0;
-  align-items: center;
-  justify-content: flex-start;
-`;
-
-/**
  * Layout Control Wrapper
  */
 const LayoutInputWrapper = styled(Column)`
   flex: 4 0;
-  height: 100%;
+  height: calc(100% - 1rem);
   align-items: center;
   justify-content: center;
+  padding-top: 1rem;
+`;
+
+/**
+ * Footer
+ */
+const Footer = styled(Row)`
+  background: linear-gradient(to bottom, #282828 0%,#252525 100%);
+  height: 25vh;
 `;
 
 /**
@@ -45,14 +46,12 @@ const Content = () => (
     <SheetWrapper>
       <Image imageIndex={1} />
     </SheetWrapper>
-    <Row height="25vh">
-      <ImageRollWrapper>
-        Image Roll Here
-      </ImageRollWrapper>
+    <Footer>
+      <ImageRoll />
       <LayoutInputWrapper>
         <Layout />
       </LayoutInputWrapper>
-    </Row>
+    </Footer>
   </Grid>
 );
 
