@@ -64,7 +64,7 @@ class Layout extends Component {
         <Title size="1.5rem">Layout</Title>
         <TextArea placeholder="Layout" value={value} onChange={this.handleChange} fluid />
         <ButtonRow flex="0 1 auto" justifyContent="center">
-          <Button backgroundColor={colors.red}>Reset</Button>
+          <Button backgroundColor={colors.red}>Clear Sheet</Button>
           <Button backgroundColor={colors.blue} type="submit">Render Layout</Button>
         </ButtonRow>
       </Form>
