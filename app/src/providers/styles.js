@@ -4,7 +4,7 @@ import _ from 'lodash';
  * Theme colors
  */
 const colors = {
-  primary: 'rgb(46, 31, 39)',
+  primary: 'rgb(255, 255, 255)',
   secondary: 'rgb(160, 108, 213)',
   black: 'rgb(46, 31, 39)',
   white: 'rgb(255, 255, 255)',
@@ -17,7 +17,7 @@ const colors = {
   purple: 'rgb(88,86,214)',
   teal: 'rgb(90,200,250)',
   pink: 'rgb(255,45,85)',
-  background: 'rgb(250, 250, 250)',
+  background: 'rgb(18, 18, 18)',
 };
 
 /**
