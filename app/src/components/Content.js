@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
+import Image from './Image';
 import Layout from '../containers/Layout';
 
 /**
@@ -11,9 +12,10 @@ import Layout from '../containers/Layout';
 const SheetWrapper = styled(Row)`
   height: 65vh;
   width: calc(100vw - 20vw);
-  padding: 5vh 10vw;
+  margin: 5vh 10vw;
   align-items: center;
   justify-content: center;
+  background-color: white;
 `;
 
 /**
@@ -41,7 +43,7 @@ const LayoutInputWrapper = styled(Column)`
 const Content = () => (
   <Grid>
     <SheetWrapper>
-      Sheet Here
+      <Image imageIndex={1} />
     </SheetWrapper>
     <Row height="25vh">
       <ImageRollWrapper>
