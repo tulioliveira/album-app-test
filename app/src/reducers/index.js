@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import LayoutReducer from './LayoutReducer';
+import SheetReducer from './SheetReducer';
 
 export default combineReducers({
-  layout: LayoutReducer
+  layout: LayoutReducer,
+  sheet: SheetReducer
 });
