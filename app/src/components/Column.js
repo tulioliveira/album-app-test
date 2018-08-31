@@ -13,6 +13,14 @@ const Column = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   /**
+   * "height" prop mapped to height property
+   */
+  height: ${props => (props.height ? props.height : 'auto')};
+  /**
+   * "width" prop mapped to width property
+   */
+  width: ${props => (props.width ? props.width : 'auto')};
+  /**
    * "minWidth" prop mapped to min-width property
    */
   min-width: ${props => (props.minWidth ? props.minWidth : 0)};

@@ -4,16 +4,20 @@ import _ from 'lodash';
  * Theme colors
  */
 const colors = {
-  primary: '#2E1F27', // Raisin Black
-  secondary: '#A06CD5', // Dark Pastel Purple
-  white: '#f7fbff', // Mint Cream
-  gray: '#e4e5e6', // Platinum
-  darkGray: '#c3cdd7', // Lavender Gray
-  orange: '#FB6107', // Vivid Orange
-  red: '#9A031E', // Hildeberg Red
-  green: '#7CB518', // Apple Green,
-  purple: '#2E1760', // Russian Violet
-  blue: '#5BC0EB' // Blue Jeans
+  primary: 'rgb(46, 31, 39)',
+  secondary: 'rgb(160, 108, 213)',
+  black: 'rgb(46, 31, 39)',
+  white: 'rgb(255, 255, 255)',
+  gray: 'rgb(142, 142, 145)',
+  blue: 'rgb(0,122,255)',
+  orange: 'rgb(255,149,0)',
+  red: 'rgb(255,59,48)',
+  yellow: 'rgb(255,204,0)',
+  green: 'rgb(76,217,100)',
+  purple: 'rgb(88,86,214)',
+  teal: 'rgb(90,200,250)',
+  pink: 'rgb(255,45,85)',
+  background: 'rgb(250, 250, 250)',
 };
 
 /**

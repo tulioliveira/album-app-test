@@ -3,43 +3,52 @@ import styled from 'styled-components';
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
-import { colors } from '../providers/styles';
+import Layout from '../containers/Layout';
 
+/**
+ * Sheet Wrapper, upper screen
+ */
 const SheetWrapper = styled(Row)`
-  height: 60vh;
+  height: 65vh;
   width: calc(100vw - 20vw);
-  padding: 10vh 10vw;
+  padding: 5vh 10vw;
   align-items: center;
   justify-content: center;
 `;
 
+/**
+ * Avaliable Image Roll Wrapper
+ */
 const ImageRollWrapper = styled(Row)`
   flex: 6 0;
-  overflow-x: scroll;
-  white-space: nowrap;
-  background-color: ${colors.gray};
   align-items: center;
   justify-content: flex-start;
 `;
 
+/**
+ * Layout Control Wrapper
+ */
 const LayoutInputWrapper = styled(Column)`
   flex: 4 0;
-  background-color: ${colors.gray};
+  height: 100%;
   align-items: center;
   justify-content: center;
 `;
 
+/**
+ * Content Component, responsible for rendering the main UI skeleton
+ */
 const Content = () => (
   <Grid>
     <SheetWrapper>
       Sheet Here
     </SheetWrapper>
-    <Row height="40vh">
+    <Row height="25vh">
       <ImageRollWrapper>
         Image Roll Here
       </ImageRollWrapper>
       <LayoutInputWrapper>
-        Layout Input Here
+        <Layout />
       </LayoutInputWrapper>
     </Row>
   </Grid>
