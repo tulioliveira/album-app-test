@@ -13,6 +13,7 @@ import { getLayoutGrid } from '../providers/layout';
  */
 export const renderLayout = (layout, sheet) => (dispatch) => {
   const payload = getLayoutGrid(layout, sheet);
+
   // Error
   if (typeof payload === 'string') {
     // Dispatch Error Message

@@ -69,7 +69,7 @@ const mapLayoutToGrid = (layout, sheet) => {
     });
   });
 
-  return grid;
+  return _.map(grid, (item, index) => ({ ...item, i: `image${index}` }));
 };
 
 /**
