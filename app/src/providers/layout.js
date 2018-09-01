@@ -47,8 +47,8 @@ const mapLayoutToGrid = (layout, sheet) => {
   const grid = _.times(images.length, _.constant({
     x: null,
     y: null,
-    width: 0,
-    height: 0
+    w: 0,
+    h: 0
   }));
 
   _.each(images, (image) => {
@@ -59,12 +59,12 @@ const mapLayoutToGrid = (layout, sheet) => {
         grid[image - 1] = {
           x: firstIndex,
           y: index,
-          width: lastIndex - firstIndex + 1,
-          height: 1
+          w: lastIndex - firstIndex + 1,
+          h: 1
         };
       }
       else if (firstIndex >= 0) {
-        grid[image - 1].height += 1;
+        grid[image - 1].h += 1;
       }
     });
   });
@@ -82,9 +82,9 @@ const isGridValid = (layout, grid) => {
   const test = _.times(grid.length, _.constant(false));
 
   _.each(grid, (item, index) => {
-    if (item.width > 1 || item.height > 1) {
-      let image = _.slice(layout, item.y, item.y + item.height);
-      image = _.map(image, row => _.slice(row, item.x, item.x + item.width));
+    if (item.w > 1 || item.h > 1) {
+      let image = _.slice(layout, item.y, item.y + item.h);
+      image = _.map(image, row => _.slice(row, item.x, item.x + item.w));
       test[index] = _.difference(_.flatten(image), [index + 1]).length === 0;
     }
     else {

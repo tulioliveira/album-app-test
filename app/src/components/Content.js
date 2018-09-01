@@ -13,7 +13,7 @@ import Layout from '../containers/Layout';
  * Sheet Wrapper, upper screen
  */
 const SheetWrapper = styled(Row)`
-  height: 65vh;
+  height: 40vw;
   width: calc(100vw - 20vw);
   margin: 5vh 10vw;
   align-items: center;
@@ -37,7 +37,7 @@ const LayoutInputWrapper = styled(Column)`
  */
 const Footer = styled(Row)`
   background: linear-gradient(to bottom, #282828 0%,#252525 100%);
-  height: 25vh;
+  height: calc(90vh - 40vw);
 `;
 
 /**

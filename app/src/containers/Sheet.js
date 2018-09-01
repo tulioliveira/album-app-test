@@ -60,9 +60,9 @@ class Sheet extends Component {
     } = this.props;
     console.log(images);
     console.log(grid);
+    console.log(isOver);
     return connectDropTarget(
       <div style={{ height: '100%', width: '100%', color: 'black' }}>
-        {isOver ? '1' : '0'}
         <LayoutGrid grid={grid} sheet={images} />
       </div>
     );
