@@ -18,7 +18,7 @@ const ImageRollWrapper = styled.div`
 
   & div {
     flex-basis: 100%;
-    height: 60%;
+    height: 65%;
     margin: 2rem 1rem;
   }
 `;
@@ -55,7 +55,7 @@ const ImageRoll = () => (
       <DraggableImage imageIndex="4" />
     </ImageRollWrapper>
     <TextWrapper>
-      <Text textAlign="left" letterSpacing="0.1rem">DRAG AND DROP IMAGES TO ADD THEM TO THE SHEET</Text>
+      <Text size="1vw" textAlign="left" letterSpacing="0.2vw">DRAG AND DROP IMAGES TO ADD THEM TO THE SHEET</Text>
     </TextWrapper>
   </Container>
 );
