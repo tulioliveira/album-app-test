@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import math from 'mathjs';
 import { RENDER_LAYOUT, RESET_LAYOUT } from './types';
 import { getLayoutGrid } from '../providers/layout';
 
@@ -12,14 +13,13 @@ import { getLayoutGrid } from '../providers/layout';
  */
 export const renderLayout = (layout, sheet) => (dispatch) => {
   const payload = getLayoutGrid(layout, sheet);
-
   // Error
   if (typeof payload === 'string') {
     // Dispatch Error Message
     // TODO
 
     // Default Grid, using layout [[1, 2, 3, ..., n]]
-    const defaultGrid = getLayoutGrid([_.times(sheet.length)], sheet);
+    const defaultGrid = getLayoutGrid([math.add(_.times(sheet.length), 1)], sheet);
     dispatch({ type: RENDER_LAYOUT, payload: defaultGrid });
   }
   else {
