@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DropTarget } from 'react-dnd';
@@ -10,8 +10,7 @@ import { pushImage } from '../actions';
 const imageTarget = {
   drop(props, monitor) {
     const item = monitor.getItem();
-
-    props.onImageDrop(item.imageIndex);
+    props.handleDrop(item.image);
   }
 };
 
@@ -27,42 +26,45 @@ const collect = (connect, monitor) => ({
  * Sheet Container, responsible for rendering the images added to it based on then
  * layout defined, as well as accept new images dragged onto the container
  */
-const Sheet = (props) => {
-  const { connectDropTarget, sheet } = props;
-  return connectDropTarget(
-    <div>
-      {sheet}
-    </div>
-  );
-};
+class Sheet extends Component {
+  static propTypes = {
+    /**
+     * Sheet data from redux level state
+     */
+    images: PropTypes.array.isRequired,
+    /**
+     * Function to dispatch new image to redux
+     */
+    handleDrop: PropTypes.func.isRequired, // eslint-disable-line react/no-unused-prop-types
+    /**
+     * Higher order function used to connect the component to dnd backend
+     */
+    connectDropTarget: PropTypes.func.isRequired,
+    /**
+     * Monitor to detect if dragged component is over target
+     */
+    isOver: PropTypes.bool.isRequired
+  }
 
-Sheet.propTypes = {
-  /**
-   * Sheet data from redux level state
-   */
-  sheet: PropTypes.array.isRequired,
-  /**
-   * Function to dispatch new image to redux
-   */
-  onImageDrop: PropTypes.func.isRequired,
-  /**
-   * Higher order function used to connect the component to dnd backend
-   */
-  connectDropTarget: PropTypes.func.isRequired,
-  /**
-   * Monitor to detect if dragged component is over target
-   */
-  isOver: PropTypes.bool.isRequired
-};
+  render() {
+    const { connectDropTarget, images, isOver } = this.props;
+    console.log(images);
+    return connectDropTarget(
+      <div style={{ height: '100%', width: '100%', color: 'black' }}>
+        {isOver ? '1' : '0'}
+      </div>
+    );
+  }
+}
 
 const mapStateToProps = state => ({
   images: state.sheet
 });
 
 const mapDispatchToProps = dispatch => ({
-  onImageDrop: (image) => {
+  handleDrop: (image) => {
     dispatch(pushImage(image));
   }
 });
 
-export default DropTarget('image', imageTarget, collect)(connect(mapStateToProps, mapDispatchToProps)(Sheet));
+export default connect(mapStateToProps, mapDispatchToProps)(DropTarget('image', imageTarget, collect)(Sheet));

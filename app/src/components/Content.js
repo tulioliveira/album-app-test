@@ -5,8 +5,8 @@ import styled from 'styled-components';
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
-import Image from './Image';
 import ImageRoll from './ImageRoll';
+import Sheet from '../containers/Sheet';
 import Layout from '../containers/Layout';
 
 /**
@@ -46,7 +46,7 @@ const Footer = styled(Row)`
 const Content = () => (
   <Grid>
     <SheetWrapper>
-      <Image imageIndex={1} />
+      <Sheet />
     </SheetWrapper>
     <Footer>
       <ImageRoll />
