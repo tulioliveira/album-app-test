@@ -13,7 +13,7 @@ const imageSource = {
 };
 
 /**
- * Collect
+ * Collect used by react drag and drop
  */
 const collect = (connect, monitor) => ({
   connectDragSource: connect.dragSource(),
