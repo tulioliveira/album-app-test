@@ -6,7 +6,6 @@ import Image from './Image';
 import Nav from './Nav';
 import Text from './Text';
 import TextArea from './TextArea';
-import Title from './Title';
 
 export {
   Grid,
@@ -16,6 +15,5 @@ export {
   Image,
   Nav,
   Text,
-  TextArea,
-  Title
+  TextArea
 };
