@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import _ from 'lodash';
 import RGL, { WidthProvider } from 'react-grid-layout';
 import SheetImage from '../containers/SheetImage';
+import { getDisplayGrid } from '../providers/layout';
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -40,30 +41,25 @@ class LayoutGrid extends Component {
   render() {
     const { width, height } = this.state;
     const { grid, sheet } = this.props;
-    const lastVerticalImage = _.maxBy(grid, image => (image.y + image.h));
-    const rowHeight = lastVerticalImage
-      ? (height / (lastVerticalImage.y + lastVerticalImage.h))
-      : height;
-    const largestImage = _.maxBy(grid, 'w');
-    let numCols = 1;
-    if (largestImage && largestImage.w > 1) {
-      const lastHorizontalImage = _.maxBy(grid, image => (image.x + image.w));
-      numCols = lastHorizontalImage.x + lastHorizontalImage.w;
-    }
-    else {
-      numCols = sheet.length ? sheet.length : 1;
-    }
+    const {
+      data,
+      cols,
+      rows,
+      paddingVertical
+    } = getDisplayGrid(grid, height);
 
     return (
       <ReactGridLayout
         margin={[0, 0]}
+        containerPadding={[0, (paddingVertical / 2)]}
         width={width}
-        rowHeight={rowHeight}
+        rowHeight={(height - paddingVertical) / rows}
+        compactType={null}
         isDraggable={false}
         isResizable={false}
-        cols={numCols}
+        cols={cols}
         items={sheet.length}
-        layout={grid}
+        layout={data}
         {...this.props}
       >
         {this.generateImages()}

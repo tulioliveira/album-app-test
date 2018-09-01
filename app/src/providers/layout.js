@@ -116,4 +116,65 @@ const getLayoutGrid = (layout, sheet) => {
   return grid;
 };
 
-export { getLayoutGrid, errorMessages };
+/**
+ * Apply offset to grid
+ * @param {array} grid
+ * @param {number} offsetX
+ * @param {number} offsetY
+ * @return {array} - Grid with center offset
+ */
+const offsetGrid = (grid, offsetX, offsetY) => _.map(grid, item => ({
+  ...item,
+  x: item.x + offsetX,
+  y: item.y + offsetY
+}));
+
+/**
+ * Get vertical padding proportional to height and number of rows
+ * @param {number} height
+ * @param {number} rows
+ * @return {number}
+ */
+const getVerticalPadding = (height, rows) => (height * (1 - (rows / (rows + 0.5))));
+
+/**
+ * Get grid division for different ratios and the display grid object
+ * @param {array} grid
+ * @param {number} height - Display Height
+ * @return {object} - Contains number of columns, rows and centeredGrid
+ */
+const getDisplayGrid = (grid, height) => {
+  const displayGrid = {
+    cols: 1,
+    rows: 1,
+    paddingVertical: 0,
+    data: grid
+  };
+
+  if (grid.length > 0) {
+    const lastVerticalImage = _.maxBy(grid, image => (image.y + image.h));
+    const lastHorizontalImage = _.maxBy(grid, image => (image.x + image.w));
+    const largestImage = _.maxBy(grid, 'w');
+    const tallestImage = _.maxBy(grid, 'h');
+    displayGrid.cols = lastHorizontalImage.x + lastHorizontalImage.w;
+    displayGrid.rows = lastVerticalImage.y + lastVerticalImage.h;
+    // Not Full Size
+    if (largestImage.w > 1 || tallestImage.h > 1) {
+      // Vertical
+      if (displayGrid.rows >= displayGrid.cols) {
+        const { cols } = displayGrid;
+        const dividedCols = cols > 6 ? (cols + (cols % 2)) : (6 + (cols % 2));
+        const offsetX = (dividedCols - cols) / 2;
+        displayGrid.cols = dividedCols;
+        displayGrid.data = offsetGrid(grid, offsetX, 0);
+      }
+      // Horizontal
+      else {
+        displayGrid.paddingVertical = getVerticalPadding(height, displayGrid.rows);
+      }
+    }
+  }
+  return displayGrid;
+};
+
+export { getLayoutGrid, getDisplayGrid, errorMessages };
