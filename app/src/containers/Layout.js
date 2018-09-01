@@ -41,10 +41,6 @@ class Layout extends Component {
 
   static propTypes = {
     /**
-     * Current sheet images
-     */
-    sheet: PropTypes.array.isRequired,
-    /**
      * Function to dispatch the inputted layout for sheet rendering
      */
     onLayoutSubmit: PropTypes.func.isRequired,
@@ -67,11 +63,13 @@ class Layout extends Component {
    * @param {object} event - Form submit event
    */
   onFormSubmit = (event) => {
-    const { onLayoutSubmit, sheet } = this.props;
+    event.preventDefault();
+    const { onLayoutSubmit } = this.props;
     const { value } = this.state;
 
-    onLayoutSubmit(JSON.parse(value), sheet);
-    event.preventDefault();
+    if (value) {
+      onLayoutSubmit(JSON.parse(value));
+    }
   }
 
   render() {
@@ -90,13 +88,9 @@ class Layout extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  sheet: state.sheet
-});
-
 const mapDispatchToProps = dispatch => ({
-  onLayoutSubmit: (layout, sheet) => {
-    dispatch(renderLayout(layout, sheet));
+  onLayoutSubmit: (layout) => {
+    dispatch(renderLayout(layout));
   },
   onClear: () => {
     dispatch(resetSheet());
@@ -104,4 +98,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
+export default connect(null, mapDispatchToProps)(Layout);

@@ -8,10 +8,10 @@ import { getLayoutGrid } from '../providers/layout';
  * displayed by react-grid-layout. If there is an error with the layout, it's
  * dispatched to the Error reducer.
  * @param {array} layout - The layout to be rendered
- * @param {array} sheet - Array
  * @return {Function} - Thunk
  */
-export const renderLayout = (layout, sheet) => (dispatch) => {
+export const renderLayout = layout => (dispatch, getState) => {
+  const { sheet } = getState(); // Get the current sheet from store
   const payload = getLayoutGrid(layout, sheet);
 
   // Error

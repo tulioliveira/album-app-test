@@ -11,7 +11,7 @@ import LayoutGrid from '../components/LayoutGrid';
 const imageTarget = {
   drop(props, monitor) {
     const item = monitor.getItem();
-    props.handleDrop(Number(item.image), props.images);
+    props.handleDrop(Number(item.image));
   }
 };
 
@@ -73,9 +73,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleDrop: (image, images) => {
+  handleDrop: (image) => {
     dispatch(pushImage(image));
-    dispatch(renderLayout([], [...images, image]));
+    dispatch(renderLayout([]));
   }
 });
 
