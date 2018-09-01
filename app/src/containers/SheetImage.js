@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { removeImage, renderLayout } from '../actions';
+import Button from '../components/Button';
 import images from '../providers/images';
+import { colors } from '../providers/styles';
 
 /**
  * Image UI component
@@ -20,14 +22,31 @@ const Image = styled.div`
 
   &:hover div {
     visibility: visible;
+    opacity: 1;
   }
 `;
 
+/**
+ * Overlay, appears on hover
+ */
 const Overlay = styled.div`
-  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.24);
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+/**
+ * Image index to be used in Layout
+ */
+const IndexText = styled.span`
+  color: white;
+  font-size: 3vw;
 `;
 
 /**
@@ -36,13 +55,16 @@ const Overlay = styled.div`
 const SheetImage = (props) => {
   const { removeImage, sheetIndex } = props;
 
-  const handleClick = () => {
+  const onRemoveClick = () => {
     removeImage(sheetIndex);
   };
 
   return (
-    <Image onClick={handleClick} {...props}>
-      <Overlay />
+    <Image {...props}>
+      <Overlay>
+        <IndexText>{sheetIndex + 1}</IndexText>
+        <Button backgroundColor={colors.red} onClick={onRemoveClick}>Remove Image</Button>
+      </Overlay>
     </Image>
   );
 };
