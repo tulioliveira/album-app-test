@@ -31,9 +31,9 @@ class LayoutGrid extends Component {
 
   generateImages() {
     const { grid, sheet } = this.props;
-    console.log(grid[0]);
+
     return _.map(grid, (image, index) => (
-      <Image key={index} data-grid={grid[index]} imageIndex={sheet[index]} />
+      <Image key={image.i} imageIndex={sheet[index]} />
     ));
   }
 
@@ -63,6 +63,7 @@ class LayoutGrid extends Component {
         isResizable={false}
         cols={numCols}
         items={sheet.length}
+        layout={grid}
         {...this.props}
       >
         {this.generateImages()}
