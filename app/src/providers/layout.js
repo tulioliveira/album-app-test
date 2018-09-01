@@ -161,7 +161,7 @@ const getDisplayGrid = (grid, height) => {
     // Not Full Size
     if (largestImage.w > 1 || tallestImage.h > 1) {
       // Vertical
-      if (displayGrid.rows >= displayGrid.cols) {
+      if ((2 * displayGrid.rows) >= displayGrid.cols) {
         const { cols } = displayGrid;
         const dividedCols = cols > 6 ? (cols + (cols % 2)) : (6 + (cols % 2));
         const offsetX = (dividedCols - cols) / 2;
