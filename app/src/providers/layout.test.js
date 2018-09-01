@@ -7,22 +7,25 @@ describe('Layout util provider tests', () => {
 
     expect(getLayoutGrid(layout, sheet)).toEqual([
       {
+        i: 'image0',
         x: 0,
         y: 0,
-        width: 1,
-        height: 1
+        w: 1,
+        h: 1
       },
       {
+        i: 'image1',
         x: 1,
         y: 0,
-        width: 1,
-        height: 1
+        w: 1,
+        h: 1
       },
       {
+        i: 'image2',
         x: 2,
         y: 0,
-        width: 1,
-        height: 1
+        w: 1,
+        h: 1
       },
     ]);
   });
@@ -43,22 +46,25 @@ describe('Layout util provider tests', () => {
 
     expect(getLayoutGrid(layout, sheet)).toEqual([
       {
+        i: 'image0',
         x: 0,
         y: 0,
-        width: 1,
-        height: 2
+        w: 1,
+        h: 2
       },
       {
+        i: 'image1',
         x: 1,
         y: 0,
-        width: 1,
-        height: 2
+        w: 1,
+        h: 2
       },
       {
+        i: 'image2',
         x: 2,
         y: 0,
-        width: 1,
-        height: 2
+        w: 1,
+        h: 2
       }
     ]);
   });
@@ -76,10 +82,11 @@ describe('Layout util provider tests', () => {
 
     expect(getLayoutGrid(layout, sheet)).toEqual([
       {
+        i: 'image0',
         x: 0,
         y: 0,
-        width: 11,
-        height: 6
+        w: 11,
+        h: 6
       }
     ]);
   });
@@ -93,16 +100,18 @@ describe('Layout util provider tests', () => {
 
     expect(getLayoutGrid(layout, sheet)).toEqual([
       {
+        i: 'image0',
         x: 0,
         y: 0,
-        width: 3,
-        height: 2
+        w: 3,
+        h: 2
       },
       {
+        i: 'image1',
         x: 3,
         y: 0,
-        width: 3,
-        height: 2
+        w: 3,
+        h: 2
       }
     ]);
   });
@@ -128,22 +137,25 @@ describe('Layout util provider tests', () => {
 
     expect(getLayoutGrid(layout, sheet)).toEqual([
       {
+        i: 'image0',
         x: 0,
         y: 0,
-        width: 3,
-        height: 4
+        w: 3,
+        h: 4
       },
       {
+        i: 'image1',
         x: 3,
         y: 0,
-        width: 3,
-        height: 2
+        w: 3,
+        h: 2
       },
       {
+        i: 'image2',
         x: 3,
         y: 2,
-        width: 3,
-        height: 2
+        w: 3,
+        h: 2
       }
     ]);
   });
