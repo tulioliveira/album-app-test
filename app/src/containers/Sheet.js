@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DropTarget } from 'react-dnd';
-import { pushImage } from '../actions';
+import { pushImage, renderLayout } from '../actions';
 
 /**
  * Image target event handler
@@ -10,7 +10,7 @@ import { pushImage } from '../actions';
 const imageTarget = {
   drop(props, monitor) {
     const item = monitor.getItem();
-    props.handleDrop(item.image);
+    props.handleDrop(Number(item.image), props.images);
   }
 };
 
@@ -43,12 +43,22 @@ class Sheet extends Component {
     /**
      * Monitor to detect if dragged component is over target
      */
-    isOver: PropTypes.bool.isRequired
+    isOver: PropTypes.bool.isRequired,
+    /**
+     * Ggrid used to render LayoutGrid
+     */
+    grid: PropTypes.array.isRequired
   }
 
   render() {
-    const { connectDropTarget, images, isOver } = this.props;
+    const {
+      connectDropTarget,
+      images,
+      grid,
+      isOver
+    } = this.props;
     console.log(images);
+    console.log(grid);
     return connectDropTarget(
       <div style={{ height: '100%', width: '100%', color: 'black' }}>
         {isOver ? '1' : '0'}
@@ -58,12 +68,14 @@ class Sheet extends Component {
 }
 
 const mapStateToProps = state => ({
-  images: state.sheet
+  images: state.sheet,
+  grid: state.layout
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleDrop: (image) => {
+  handleDrop: (image, images) => {
     dispatch(pushImage(image));
+    dispatch(renderLayout([], [...images, image]));
   }
 });
 
