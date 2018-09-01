@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import RGL, { WidthProvider } from 'react-grid-layout';
-import Image from './Image';
+import SheetImage from '../containers/SheetImage';
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -33,7 +33,7 @@ class LayoutGrid extends Component {
     const { grid, sheet } = this.props;
 
     return _.map(grid, (image, index) => (
-      <Image key={image.i} imageIndex={sheet[index]} />
+      <SheetImage key={image.i} sheetIndex={index} imageIndex={sheet[index]} />
     ));
   }
 
