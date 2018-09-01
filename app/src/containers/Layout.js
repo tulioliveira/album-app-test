@@ -68,7 +68,12 @@ class Layout extends Component {
     const { value } = this.state;
 
     if (value) {
-      onLayoutSubmit(JSON.parse(value));
+      try {
+        onLayoutSubmit(JSON.parse(value));
+      }
+      catch (e) {
+        console.log(e);
+      }
     }
   }
 
