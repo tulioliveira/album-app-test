@@ -1,6 +1,7 @@
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
+import Card from './Card';
 import Button from './Button';
 import Image from './Image';
 import Nav from './Nav';
@@ -11,6 +12,7 @@ export {
   Grid,
   Row,
   Column,
+  Card,
   Button,
   Image,
   Nav,
