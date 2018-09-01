@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DropTarget } from 'react-dnd';
 import { pushImage, renderLayout } from '../actions';
+import LayoutGrid from '../components/LayoutGrid';
 
 /**
  * Image target event handler
@@ -62,6 +63,7 @@ class Sheet extends Component {
     return connectDropTarget(
       <div style={{ height: '100%', width: '100%', color: 'black' }}>
         {isOver ? '1' : '0'}
+        <LayoutGrid grid={grid} sheet={images} />
       </div>
     );
   }

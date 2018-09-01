@@ -10,8 +10,6 @@ class LayoutGrid extends Component {
     isDraggable: false,
     isResizable: false,
     items: 0,
-    cols: 12,
-    rowHeight: 30,
   };
 
   generateImages() {
