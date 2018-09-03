@@ -11,6 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import rootReducer from './reducers';
 import './index.css';
 import 'react-grid-layout/css/styles.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 const persistConfig = {
   key: 'root',
