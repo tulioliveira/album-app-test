@@ -137,7 +137,8 @@ const offsetGrid = (grid, offsetX, offsetY) => _.map(grid, item => ({
 const getVerticalPadding = (height, rows) => (height * (1 - (rows / (rows + 0.5))));
 
 /**
- * Get grid division for different ratios and the display grid object
+ * Get grid division for different ratios and the display grid object, using the
+ * rendering component height
  * @param {array} grid
  * @param {number} height - Display Height
  * @return {object} - Contains number of columns, rows and centeredGrid
