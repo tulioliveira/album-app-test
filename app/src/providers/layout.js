@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import math from 'mathjs';
 
 /**
  * Error messages in the display
@@ -29,7 +28,7 @@ const isDimensionValid = layout => (
  * @return {boolean}
  */
 const doesLayoutMatchSheet = (layout, sheet) => {
-  const validImages = math.add(_.times(sheet.length), 1);
+  const validImages = _.range(1, sheet.length + 1);
 
   return (
     _.difference(validImages, _.flatten(layout)).length === 0
@@ -43,7 +42,7 @@ const doesLayoutMatchSheet = (layout, sheet) => {
  * @return {array}
  */
 const mapLayoutToGrid = (layout, sheet) => {
-  const images = math.add(_.times(sheet.length), 1);
+  const images = _.range(1, sheet.length + 1);
   const grid = _.times(images.length, _.constant({
     x: null,
     y: null,

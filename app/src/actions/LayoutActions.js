@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import math from 'mathjs';
 import { toast } from 'react-toastify';
 import { RENDER_LAYOUT, RESET_LAYOUT } from './types';
 import { getLayoutGrid } from '../providers/layout';
@@ -22,7 +21,7 @@ export const renderLayout = layout => (dispatch, getState) => {
       toast.error(payload);
 
       // Default Grid, using layout [[1, 2, 3, ..., n]]
-      const defaultGrid = getLayoutGrid([math.add(_.times(sheet.length), 1)], sheet);
+      const defaultGrid = getLayoutGrid([_.range(1, sheet.length + 1)], sheet);
       dispatch({ type: RENDER_LAYOUT, payload: defaultGrid });
     }
     else {
@@ -31,7 +30,7 @@ export const renderLayout = layout => (dispatch, getState) => {
   }
   else {
     // Default Grid, using layout [[1, 2, 3, ..., n]]
-    const defaultGrid = getLayoutGrid([math.add(_.times(sheet.length), 1)], sheet);
+    const defaultGrid = getLayoutGrid([_.range(1, sheet.length + 1)], sheet);
     dispatch({ type: RENDER_LAYOUT, payload: defaultGrid });
   }
 };
