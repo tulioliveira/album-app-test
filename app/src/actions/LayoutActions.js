@@ -13,19 +13,26 @@ import { getLayoutGrid } from '../providers/layout';
  */
 export const renderLayout = layout => (dispatch, getState) => {
   const { sheet } = getState(); // Get the current sheet from store
-  const payload = getLayoutGrid(layout, sheet);
+  if (layout.length > 0) {
+    const payload = getLayoutGrid(layout, sheet);
 
-  // Error
-  if (typeof payload === 'string') {
-    // Dispatch Error Message
-    toast.error(payload);
+    // Error
+    if (typeof payload === 'string') {
+      // Dispatch Error Message
+      toast.error(payload);
 
+      // Default Grid, using layout [[1, 2, 3, ..., n]]
+      const defaultGrid = getLayoutGrid([math.add(_.times(sheet.length), 1)], sheet);
+      dispatch({ type: RENDER_LAYOUT, payload: defaultGrid });
+    }
+    else {
+      dispatch({ type: RENDER_LAYOUT, payload });
+    }
+  }
+  else {
     // Default Grid, using layout [[1, 2, 3, ..., n]]
     const defaultGrid = getLayoutGrid([math.add(_.times(sheet.length), 1)], sheet);
     dispatch({ type: RENDER_LAYOUT, payload: defaultGrid });
-  }
-  else {
-    dispatch({ type: RENDER_LAYOUT, payload });
   }
 };
 
