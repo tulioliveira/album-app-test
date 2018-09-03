@@ -6,6 +6,7 @@ import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
 import ImageRoll from './ImageRoll';
+import Flash from '../containers/Flash';
 import Sheet from '../containers/Sheet';
 import Layout from '../containers/Layout';
 
@@ -45,6 +46,7 @@ const Footer = styled(Row)`
  */
 const Content = () => (
   <Grid>
+    <Flash />
     <SheetWrapper>
       <Sheet />
     </SheetWrapper>
