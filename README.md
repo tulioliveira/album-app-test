@@ -1,48 +1,45 @@
-## Teste para recutramento de Front-end
+# Album Layout Design Test
 
-### A Alboom
-A Alboom é hoje a maior plataforma de serviços digitais para fotógrafos e artistas visuais da América Latina. A Alboom engloba a maior diversidade de produtos e serviços para fotógrafos, contando com sites profissionais, aprovação de fotos, aprovação de álbum, aprovação de vídeos, criação de galerias, CRM para fotógrafos, diagramação de álbuns, realidade aumentada e muito mais. Além disso temos como missão ser uma plataforma de multi aplicação que trás uma camadas gigantesca de micro-serviços que fazem com que a plataforma funcione e entregue a melhor experiência para nossos usuários.
+![Home Page](https://imgur.com/FWvTls3.png)
 
-A Alboom reconhece a importância da igualdade de oportunidades. O respeito ao ser humano, valoriza a diversidade e a convicção de que todos podem fazer algo que mudará o mundo ou a vida de alguém para melhor.
+This app allows you to configure album sheet layouts using a `<textarea>` input. You can add images to the sheet dragging and droping the available collection on the footer. Hover over an image in the sheet to display it's identifier for the layout configuration and a button to remove it from the sheet.
 
-### Teste Front-end para o DesignBox, um produto Alboom!
-Este teste tem o objetivo de entendermos um pouco mais sobre seus conhecimentos com HTML, CSS, lógica, WebAPI's e WebComponents.
+## Available Scripts
 
-### Instruções
+In the project directory, you can run:
 
-1. Crie uma conta no [gitlab.com](https://www.gitlab.com/);
-2. Faça um fork e clone deste projeto;
-3. Crie um branch com o seu nome;
-4. Estude o problema descrito em docs/REQUISITOS.md;
-5. Crie uma aplicação web seguindo as boas práticas da comunidade;
-6. Implemente a solução para o problema.
+### `npm start` or `yarn start`
 
-**PS:** Usamos o mesmo teste para todos os níveis de front: **pleno** ou **senior**, mas procuramos adequar nossa exigência na avaliação com cada um desses níveis sem, por exemplo, exigir excelência de quem está começando.
+Runs the app in the development mode.<br>
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### Esperamos que você
+The page will reload if you make edits.<br>
+You will also see any lint errors in the console.
 
-* Utilize algum biblioteca/framework (Polymer, Vue, React, etc.) para trabalhar com os WebComponents;
-* Utilize as ultimas versões das api's da web (atender browsers evergreen);
-* Utilize as ultimas versões de bibliotecas disponíveis;
-* Utilize as convenções arquiteturais da biblioteca/framework selecionado.
-* Otimize a aplicação ao máximo;
-* Especifique o projeto no `README.md`;
-* Documente seus componentes e funções;
+### `npm test` or `yarn test`
 
-### Você pode
+Launches the test runner in the interactive watch mode.<br>
 
-* Utilizar um pré-processador de CSS (Stylus, Scss);
-* Utilizar um task runner de sua preferência;
-* Utilizar bibliotecas CSS como nib, compass, ou outras;
+### `npm run build` or `yarn build`
 
-### Ganhe pontos extras por:
+Builds the app for production to the `build` folder.<br>
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-* Implemente gerenciamento de estado (MobX State Tree)
-* Utilizar javascript moderno (ES6, ES2016 ou ES2017);
-* Testes automatizados;
-* Componentizar seu CSS;
-* Ser fiel as especificações dos arquivos;
-* Utilizar `CI` para automatização;
-* UX/UI;
+The build is minified and the filenames include the hashes.<br>
 
-<br><br><sub>Os dados presentes neste teste são totalmente fictícios.</sub>
+#### After building
+
+The app can be served locally as a static server using:
+
+```sh
+npm install -g serve
+serve -s build
+```
+
+The last command shown above will serve your static site on the port **5000**. Like many of [serve](https://github.com/zeit/serve)’s internal settings, the port can be adjusted using the `-p` or `--port` flags.
+
+Run this command to get a full list of the options available:
+
+```sh
+serve -h
+```
