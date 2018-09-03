@@ -2,11 +2,11 @@ import React from 'react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 import styled from 'styled-components';
+import { ToastContainer, Flip } from 'react-toastify';
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
 import ImageRoll from './ImageRoll';
-import Flash from '../containers/Flash';
 import Sheet from '../containers/Sheet';
 import Layout from '../containers/Layout';
 
@@ -46,7 +46,10 @@ const Footer = styled(Row)`
  */
 const Content = () => (
   <Grid>
-    <Flash />
+    <ToastContainer
+      autoClose={2000}
+      transition={Flip}
+    />
     <SheetWrapper>
       <Sheet />
     </SheetWrapper>
